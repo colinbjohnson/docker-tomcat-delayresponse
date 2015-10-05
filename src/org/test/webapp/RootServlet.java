@@ -17,8 +17,17 @@ public class RootServlet extends HttpServlet {
     //String delay = System.getProperty("delay");
     //int delay_int = Integer.parseInt(delay);
 
+    Integer delayResponse = 0;
+
+    // if the environment variable DELAY_RESPONSE is set, use 
+
+    String delayResponseEnv = System.getenv("DELAY_RESPONSE");
+    if ( delayResponseEnv != null ) {
+        delayResponse = Integer.parseInt(delayResponseEnv) * 1000;
+    }
+
     try {
-        Thread.sleep(60000);
+        Thread.sleep(delayResponse);
     }
     catch (InterruptedException ie) {
         // Handle the exception
@@ -26,16 +35,18 @@ public class RootServlet extends HttpServlet {
 
     resp.getWriter().println(new Date());
     
-    resp.getWriter().println("Request Info Servlet Requested");
+    resp.getWriter().println("Delay Response Requested");
 
-    StringBuffer req_url = req.getRequestURL();
-    resp.getWriter().println("Request URL " + req_url);
+    resp.getWriter().println("Delay set to: " + delayResponse);
 
-    String req_servlet_path = req.getServletPath();
-    resp.getWriter().println("Request Servlet Path " + req_servlet_path);
+    StringBuffer reqUrl = req.getRequestURL();
+    resp.getWriter().println("Request URL " + reqUrl);
 
-    String req_remote_address = req.getRemoteAddr();
-    resp.getWriter().println("Request Remote Address " + req_remote_address);
+    String reqServletPath = req.getServletPath();
+    resp.getWriter().println("Request Servlet Path " + reqServletPath);
+
+    String reqRemoteAddress = req.getRemoteAddr();
+    resp.getWriter().println("Request Remote Address " + reqRemoteAddress);
   
   }
 }  

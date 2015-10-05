@@ -1,0 +1,12 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "colinbjohnson/docker-tomcat-delayresponse:0.1.0",
+    "Update": "true"
+  },
+ "Ports": [
+    {
+      "ContainerPort": "8080"
+    }
+  ]
+}

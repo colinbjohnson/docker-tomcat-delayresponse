@@ -26,7 +26,7 @@ EXPOSE 8080
 COPY webapp.war /usr/local/tomcat/webapps/
 EOF
 # 
-docker build --tag colinbjohnson/docker-tomcat-delayresponse:0.1.0 /root/build_directory/
+docker build --no-cache --tag colinbjohnson/docker-tomcat-delayresponse:0.1.0 /root/build_directory/
 # test: docker run docker-tomcat -p 8080:8080
 # curl localhost:8080/webapp
 # need to run "docker login"

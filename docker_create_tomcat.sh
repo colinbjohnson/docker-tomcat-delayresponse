@@ -10,6 +10,8 @@
 # http://blog.trifork.com/2013/08/15/using-docker-to-efficiently-create-multiple-tomcat-instances/
 
 apt-get -y update
+apt-get -y install openjdk-7-jdk
+apt-get -y install ant
 # 
 # pull a specific docker image
 curl -sSL https://get.docker.com/ | sh
@@ -27,8 +29,10 @@ EOF
 docker build --tag colinbjohnson/docker-tomcat-delayresponse:0.1.0 /root/build_directory/
 # test: docker run docker-tomcat -p 8080:8080
 # curl localhost:8080/webapp
-docker push colinbjohnson/docker-tomcat-delayresponse:0.1.0
+# need to run "docker login"
+# before running "docker push"
+# docker push colinbjohnson/docker-tomcat-delayresponse:0.1.0
 # 
-# # confirm the image has been built:
-# # docker.io images
+# confirm the image has been built:
+# docker images
 # 

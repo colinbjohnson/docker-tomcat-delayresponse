@@ -19,7 +19,7 @@ docker pull tomcat:7.0.64-jre8
 mkdir /root/build_directory
 cd /root/build_directory
 cp /vagrant/webapp.war /root/build_directory
-cat > Dockerfile <<EOF
+cat > /root/build_directory/Dockerfile <<EOF
 FROM tomcat:7.0.64-jre8
 MAINTAINER Colin Johnson "colin@cloudavail.com"
 EXPOSE 8080

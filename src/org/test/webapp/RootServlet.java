@@ -17,17 +17,17 @@ public class RootServlet extends HttpServlet {
     //String delay = System.getProperty("delay");
     //int delay_int = Integer.parseInt(delay);
 
-    Integer delayResponse = 0;
+    Integer delayResponseMilliseconds = 0;
 
     // if the environment variable DELAY_RESPONSE is set, use 
 
     String delayResponseEnv = System.getenv("DELAY_RESPONSE");
     if ( delayResponseEnv != null ) {
-        delayResponse = Integer.parseInt(delayResponseEnv) * 1000;
+        delayResponseMilliseconds = Integer.parseInt(delayResponseEnv) * 1000;
     }
 
     try {
-        Thread.sleep(delayResponse);
+        Thread.sleep(delayResponseMilliseconds);
     }
     catch (InterruptedException ie) {
         // Handle the exception
@@ -37,7 +37,8 @@ public class RootServlet extends HttpServlet {
     
     resp.getWriter().println("Delay Response Requested");
 
-    resp.getWriter().println("Delay set to: " + delayResponse);
+    resp.getWriter().println("Delay set to: " + (delayResponseMilliseconds / 1000 ) + " seconds");
+    resp.getWriter().println("Delay set to: " + delayResponseMilliseconds + " milliseconds");
 
     StringBuffer reqUrl = req.getRequestURL();
     resp.getWriter().println("Request URL " + reqUrl);

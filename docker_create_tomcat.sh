@@ -15,12 +15,12 @@ apt-get -y install ant
 # 
 # pull a specific docker image
 curl -sSL https://get.docker.com/ | sh
-docker pull tomcat:7.0.64-jre7
+docker pull tomcat:7.0.64-jre8
 mkdir /root/build_directory
 cd /root/build_directory
 cp /vagrant/webapp.war /root/build_directory
 cat > Dockerfile <<EOF
-FROM tomcat:7.0.64-jre7
+FROM tomcat:7.0.64-jre8
 MAINTAINER Colin Johnson "colin@cloudavail.com"
 EXPOSE 8080
 COPY webapp.war /usr/local/tomcat/webapps/

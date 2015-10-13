@@ -1,0 +1,10 @@
+branch-defaults:
+  master:
+    environment: null
+global:
+  application_name: docker-tomcat-delayresponse
+  default_ec2_keyname: cjohnson-test
+  default_platform: Docker 1.7.1
+  default_region: null
+  profile: null
+  sc: git
